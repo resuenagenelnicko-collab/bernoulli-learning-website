@@ -6,6 +6,7 @@ function App() {
 
   return (
     <main className="landing-page">
+      {/* Animated fluid background */}
       <div className="fluid-background" aria-hidden="true">
         <span></span>
         <span></span>
@@ -14,6 +15,7 @@ function App() {
         <span></span>
       </div>
 
+      {/* Main website content */}
       <div className="content">
         <p className="website-name">BERNOULLI'S PRINCIPLE</p>
 
@@ -30,12 +32,13 @@ function App() {
           prepared for your independent learning journey.
         </p>
 
+        {/* General Instructions toggle button */}
         <div className="instructions-control">
           <button
             type="button"
             className="instructions-button"
             onClick={() =>
-              setShowInstructions(!showInstructions)
+              setShowInstructions((previousState) => !previousState)
             }
             aria-expanded={showInstructions}
             aria-controls="general-instructions"
@@ -46,6 +49,7 @@ function App() {
           </button>
         </div>
 
+        {/* General Instructions section */}
         {showInstructions && (
           <section
             id="general-instructions"
@@ -59,33 +63,60 @@ function App() {
               <h3>GENERAL INSTRUCTIONS</h3>
             </div>
 
-            <p className="instructions-description">
-              Please read the general instructions carefully
-              before proceeding with the learning materials.
-              Follow the guidelines provided to help you
-              complete the learning activities.
-              Read and answer all the activities
-              and questions in the module.
-              Write your answers on one (1) whole sheet of paper.
-              Write your answers only, without copying the questions.
-              Make sure your answers are properly
-              numbered, organized, and legible.
-              Review your work before submitting it.
-              Submission Deadline: Saturday, October 17, 2026.
-              Please ensure that your work is complete
-              and submitted on or before the specified deadline.
-            </p>
-
-            <div className="download-placeholder">
-              <span aria-hidden="true">↓</span>
+            <div className="instructions-description">
               <p>
-                Your PDF download button will be available here
-                once the instructions file is ready.
+                Please read the general instructions carefully
+                before proceeding with the learning materials.
+                Follow the guidelines provided to help you
+                complete the learning activities.
+              </p>
+
+              <ol>
+                <li>
+                  Read and answer all the activities and
+                  questions in the module.
+                </li>
+                <li>
+                  Write your answers on one (1) whole sheet
+                  of paper.
+                </li>
+                <li>
+                  Write your answers only, without copying
+                  the questions.
+                </li>
+                <li>
+                  Make sure your answers are properly numbered,
+                  organized, and legible.
+                </li>
+                <li>
+                  Review your work before submitting it.
+                </li>
+              </ol>
+
+              <p>
+                <strong>Submission Deadline:</strong>{" "}
+                Saturday, October 17, 2026.
+              </p>
+
+              <p>
+                Please ensure that your work is complete and
+                submitted on or before the specified deadline.
               </p>
             </div>
+
+            {/* Download General Instructions PDF */}
+            <a
+              href="/files/general-instructions.pdf"
+              download="General-Instructions.pdf"
+              className="download-button"
+            >
+              <span aria-hidden="true">↓</span>
+              DOWNLOAD GENERAL INSTRUCTIONS (PDF)
+            </a>
           </section>
         )}
 
+        {/* Designer credit */}
         <p className="designer-credit">
           DESIGNED BY GROUP 1 BSED-SCIE 4A
         </p>
